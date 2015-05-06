@@ -6,7 +6,7 @@
   "repository": "tiagox/api-training",
   "scripts": {
     "prestart": "npm install",
-    "start": "nodemon ./server.js"
+    "start": "nodemon --harmony ./server.js"
   },
   "author": "Santiago Rojo <santiago.rojo@graion.com>",
   "license": "MIT",
