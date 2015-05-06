@@ -14,12 +14,15 @@ app.get('/advertisers', function (req, res) {
 });
 
 app.get('/advertisers/:id', function (req, res) {
-  for (var i = 0; i < advertisers.length; i += 1) {
-    if (advertisers[i].id == req.params.id) {
-      res.json(advertisers[i]);
-    }
+  var advertiser = advertisers.find(function (advertiser) {
+    return advertiser.id == req.params.id;
+  });
+
+  if (advertiser) {
+    res.json(advertiser);
+  } else {
+    res.status(404).send('Advertiser not found');
   }
-  res.status(404).send('Advertiser not found');
 });
 
 var server = app.listen(8080, function () {
